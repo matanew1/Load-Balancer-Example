@@ -6,31 +6,17 @@ services:
       tty: true
       volumes:
         - './app/logs:/app/logs'
-#  app2:
-#    build: ./app
-#    tty: true
-#    volumes:
-#      - './app/logs:/app/logs'
-#  app3:
-#    build: ./app
-#    tty: true
-#    volumes:
-#      - './app/logs:/app/logs'
-#  app4:
-#    build: ./app
-#    tty: true
-#    volumes:
-#      - './app/logs:/app/logs'
-#  app5:
-#    build: ./app
-#    tty: true
-#    volumes:
-#      - './app/logs:/app/logs'
+      depends_on:
+        - db
   db:
-    build: ./db
-    volumes:
-      - ./db/data:/data/db
-      - ./db/logs:/var/log/mongodb
+    image: mongo:latest
+    hostname: test_mongodb
+    environment:
+      - MONGO_INITDB_DATABASE=whist_cloud
+      - MONGO_INITDB_ROOT_USERNAME=matan
+      - MONGO_INITDB_ROOT_PASSWORD=matan
+    ports:
+      - "27017:27017"
   nginx:
     build: ./nginx
     tty: true
@@ -38,3 +24,5 @@ services:
       - "80:80"
     volumes:
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+    depends_on:
+      - app1
