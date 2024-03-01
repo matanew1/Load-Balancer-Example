@@ -1,0 +1,16 @@
+# Docker
+docker-compose.yml
+*.log
+.env
+
+# Dependency directories
+node_modules/
+venv/
+env/
+
+# Compiled code or binaries
+*.pyc
+*.class
+*.jar
+/target/
+/bin/
