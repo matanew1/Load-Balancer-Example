@@ -1,5 +1,5 @@
-FROM postgres:latest
+FROM mongo:latest
 
-VOLUME ["/var/lib/postgresql/data", "/var/log/postgresql"]
+VOLUME ["/data/db", "/var/log/mongodb"]
 
-EXPOSE 5432
+EXPOSE 27017

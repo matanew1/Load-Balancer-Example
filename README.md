@@ -4,13 +4,16 @@ This repository contains a Docker setup for deploying an Nginx load balancer, th
 
 ## Contents
 
-1. [Requirements](#requirements)
-2. [Setup](#setup)
-3. [Usage](#usage)
-4. [Directory Structure](#directory-structure)
-5. [License](#license)
+- [Requirements](#requirements)
+- [Setup](#setup)
+- [Usage](#usage)
+- [Directory Structure](#directory-structure)
+- [Scaling the Application](#scaling-the-application)
+- [License](#license)
 
 ## Requirements
+
+To use this Dockerized deployment setup, ensure that you have the following installed:
 
 - Docker
 - Docker Compose

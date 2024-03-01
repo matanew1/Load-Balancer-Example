@@ -7,33 +7,26 @@ services:
     ports:
       - "80:80"
     depends_on:
-      - app1
-      - app2
-      - app3
+      - app
 
-  app1:
+  app:
     build:
-      context: ./app
+      context: app
+      dockerfile: Dockerfile
+    container_name: app
+    ports:
+      - '5000:5000'
+    depends_on:
+      - db
     volumes:
       - ./app/logs:/app/logs
 
-  app2:
-    build:
-      context: ./app
-    volumes:
-      - ./app/logs:/app/logs
-
-  app3:
-    build:
-      context: ./app
-    volumes:
-      - ./app/logs:/app/logs
 
   db:
-    image: mongo
-    environment:
-      MONGO_INITDB_ROOT_USERNAME: matan
-      MONGO_INITDB_ROOT_PASSWORD: matan
+    image: mongo:latest
+    container_name: database
+    ports:
+      - '27017:27017'
     volumes:
       - ./db/data:/data/db
       - ./db/logs:/var/log/mongodb
