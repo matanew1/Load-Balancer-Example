@@ -1,18 +1,28 @@
 #!/bin/bash
 
-# Define the desired scale
-desired_scale=5
+# Function to scale the app service to a specified number of replicas
+scale_app() {
+    local replicas="$1"
+    docker-compose up -d --scale app1="$replicas"
+}
 
-# Get the current scale of the app service
-current_scale=$(docker-compose ps -q nginx | wc -l)
-
-# Check if the current scale is less than the desired scale
-if [ $current_scale -lt $desired_scale ]; then
-    echo "Scaling up to $desired_scale containers..."
-    docker-compose up -d --scale nginx=$desired_scale
-elif [ $current_scale -gt $desired_scale ]; then
-    echo "Scaling down to $desired_scale containers..."
-    docker-compose up -d --scale nginx=$desired_scale
-else
-    echo "App service is already scaled to $desired_scale containers."
+# Main script
+if [ "$#" -ne 1 ]; then
+    echo "Usage: $0 <replicas>"
+    exit 1
 fi
+
+replicas="$1"
+
+if ! [[ "$replicas" =~ ^[0-9]+$ ]]; then
+    echo "Replicas must be a valid positive integer."
+    exit 1
+fi
+
+if [ "$replicas" -lt 1 ] || [ "$replicas" -gt 5 ]; then
+    echo "Replicas must be between 1 and 5."
+    exit 1
+fi
+
+scale_app "$replicas"
+echo "Scaled app1 to $replicas replicas."

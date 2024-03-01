@@ -6,26 +6,26 @@ services:
       tty: true
       volumes:
         - './app/logs:/app/logs'
-  app2:
-    build: ./app
-    tty: true
-    volumes:
-      - './app/logs:/app/logs'
-  app3:
-    build: ./app
-    tty: true
-    volumes:
-      - './app/logs:/app/logs'
-  app4:
-    build: ./app
-    tty: true
-    volumes:
-      - './app/logs:/app/logs'
-  app5:
-    build: ./app
-    tty: true
-    volumes:
-      - './app/logs:/app/logs'
+#  app2:
+#    build: ./app
+#    tty: true
+#    volumes:
+#      - './app/logs:/app/logs'
+#  app3:
+#    build: ./app
+#    tty: true
+#    volumes:
+#      - './app/logs:/app/logs'
+#  app4:
+#    build: ./app
+#    tty: true
+#    volumes:
+#      - './app/logs:/app/logs'
+#  app5:
+#    build: ./app
+#    tty: true
+#    volumes:
+#      - './app/logs:/app/logs'
   db:
     build: ./db
     volumes:
