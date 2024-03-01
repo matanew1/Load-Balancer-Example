@@ -14,3 +14,6 @@ env/
 *.jar
 /target/
 /bin/
+
+#log
+db/data
