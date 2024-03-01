@@ -36,3 +36,9 @@ To deploy the application, navigate to the directory containing the `docker-comp
 
 ```bash
 docker-compose up --build
+```
+
+Or on linux
+
+```bash
+./scale-container.sh <write-a-number>
