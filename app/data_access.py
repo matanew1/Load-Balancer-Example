@@ -1,5 +1,5 @@
 # data_access.py
-from db.database import Database  # Import the Database class
+from database import Database  # Import the Database class
 
 class DataAccess:
     def __init__(self, mongo_uri):

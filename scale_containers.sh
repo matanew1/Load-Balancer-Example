@@ -3,7 +3,7 @@
 # Function to scale the app service to a specified number of replicas
 scale_app() {
     local replicas="$1"
-    docker-compose up -d --scale app1="$replicas"
+    docker-compose up --build -d --scale app1="$replicas"
 }
 
 # Main script
