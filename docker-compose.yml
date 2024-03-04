@@ -13,8 +13,8 @@ services:
     hostname: test_mongodb
     environment:
       - MONGO_INITDB_DATABASE=whist_cloud
-      - MONGO_INITDB_ROOT_USERNAME=matan
-      - MONGO_INITDB_ROOT_PASSWORD=matan
+      - MONGO_INITDB_ROOT_USERNAME=username
+      - MONGO_INITDB_ROOT_PASSWORD=password
     ports:
       - "27017:27017"
   nginx:
